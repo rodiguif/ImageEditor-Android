@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ImageEditLibrary</string>
+    <string name="app_name">Edit image</string>
     <string name="no_images">No found the image</string>
     <string name="images">%d Images</string>
     <string name="save">Save</string>
@@ -14,16 +14,16 @@
 
 
 
-    <string name="materialcolorpicker__app_name">Android Material Color Picker Dialog</string>
-    <string name="materialcolorpicker__descLib">Material Color Picker Dialog</string>
-    <string name="materialcolorpicker__errHex">Hex Code Format incorrect</string>
-    <string name="materialcolorpicker__inputColor">Color:</string>
-    <string name="materialcolorpicker__btnSelectColor">Select</string>
+    <string name="materialcolorpicker__app_name" translatable="false">Android Material Color Picker Dialog</string>
+    <string name="materialcolorpicker__descLib" translatable="false">Material Color Picker Dialog</string>
+    <string name="materialcolorpicker__errHex" translatable="false">Hex Code Format incorrect</string>
+    <string name="materialcolorpicker__inputColor" translatable="false">Color:</string>
+    <string name="materialcolorpicker__btnSelectColor" translatable="false">Select</string>
     <string name="saving_image">Save...</string>
     <string name="input_hint">Input text ...</string>
 
     <string name="no_choose">Please choose a image for edit</string>
-    <string name="auto_newline">AutoNewline</string>
+    <string name="auto_newline" translatable="false">AutoNewline</string>
     <string name="save_error">Save error!</string>
     <string name="handing">Loading...</string>
 
@@ -43,10 +43,10 @@
         <item>Mosaic</item>
     </string-array>
 
-    <string name="more">more</string>
+    <string name="more">More</string>
     <string name="exit_without_save">The edited image is not saved. Do you want to exit? </string>
     <string name="confirm">Confirm</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
 
     <string name="beauty">Ceauty</string>
     <string name="smooth">Smooth</string>
