@@ -49,21 +49,21 @@ public class MainMenuFragment extends BaseEditFragment implements View.OnClickLi
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        stickerBtn = mainView.findViewById(R.id.btn_stickers);
+        //stickerBtn = mainView.findViewById(R.id.btn_stickers);
         fliterBtn = mainView.findViewById(R.id.btn_filter);
         cropBtn = mainView.findViewById(R.id.btn_crop);
         rotateBtn = mainView.findViewById(R.id.btn_rotate);
         mTextBtn = mainView.findViewById(R.id.btn_text);
         mPaintBtn = mainView.findViewById(R.id.btn_paint);
-        mBeautyBtn = mainView.findViewById(R.id.btn_beauty);
+        //mBeautyBtn = mainView.findViewById(R.id.btn_beauty);
 
-        stickerBtn.setOnClickListener(this);
+        //stickerBtn.setOnClickListener(this);
         fliterBtn.setOnClickListener(this);
         cropBtn.setOnClickListener(this);
         rotateBtn.setOnClickListener(this);
         mTextBtn.setOnClickListener(this);
         mPaintBtn.setOnClickListener(this);
-        mBeautyBtn.setOnClickListener(this);
+        //mBeautyBtn.setOnClickListener(this);
     }
 
     @Override
@@ -78,9 +78,10 @@ public class MainMenuFragment extends BaseEditFragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (v == stickerBtn) {
+        /*if (v == stickerBtn) {
             onStickClick();
-        } else if (v == fliterBtn) {
+        }*/
+        if (v == fliterBtn) {
             onFilterClick();
         } else if (v == cropBtn) {
             onCropClick();
@@ -90,9 +91,9 @@ public class MainMenuFragment extends BaseEditFragment implements View.OnClickLi
             onAddTextClick();
         } else if (v == mPaintBtn) {
             onPaintClick();
-        }else if(v == mBeautyBtn){
+        }/*else if(v == mBeautyBtn){
             onBeautyClick();
-        }
+        }*/
     }
 
     /**
@@ -100,10 +101,10 @@ public class MainMenuFragment extends BaseEditFragment implements View.OnClickLi
      *
      * @author panyi
      */
-    private void onStickClick() {
+    /*private void onStickClick() {
         activity.bottomGallery.setCurrentItem(StickerFragment.INDEX);
         activity.mStickerFragment.onShow();
-    }
+    }*/
 
     /**
      * 滤镜模式
