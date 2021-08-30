@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="imageeditlibrary/src/main/res/drawable/ic_redo_24.xml" value="0.1" />
         <entry key="imageeditlibrary/src/main/res/layout/activity_image_edit.xml" value="0.19791666666666666" />
         <entry key="imageeditlibrary/src/main/res/layout/activity_main.xml" value="0.19791666666666666" />
         <entry key="imageeditlibrary/src/main/res/layout/bucketitem.xml" value="0.19791666666666666" />
+        <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_add_text.xml" value="0.31979166666666664" />
+        <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_beauty.xml" value="0.31979166666666664" />
+        <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_crop.xml" value="0.31979166666666664" />
+        <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_fliter.xml" value="0.31979166666666664" />
         <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_main_menu.xml" value="0.1" />
         <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_rotate.xml" value="0.35572916666666665" />
         <entry key="imageeditlibrary/src/main/res/layout/fragment_edit_image_sticker_type.xml" value="0.19791666666666666" />

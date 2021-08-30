@@ -37,8 +37,8 @@
 
     <string name="more">Mer</string>
     <string name="exit_without_save">Det redigerte bildet lagres ikke. Vil du avslutte?</string>
-    <string name="confirm">Avbryt</string>
-    <string name="cancel">Bekrefte</string>
+    <string name="confirm">Bekrefte</string>
+    <string name="cancel">Avbryt</string>
 
     <string name="beauty">Ceauty</string>
     <string name="smooth">Glatt</string>

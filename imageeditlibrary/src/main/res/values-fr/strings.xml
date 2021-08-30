@@ -38,8 +38,8 @@
     <string name="more">Suite</string>
     <string name="exit_without_save">L\'image modifiée est pas enregistrée. Voulez-vous sortir?</string>
 
-    <string name="confirm">Annuler</string>
-    <string name="cancel">Confirmer</string>
+    <string name="confirm">Confirmer</string>
+    <string name="cancel">Annuler</string>
 
     <string name="beauty">Beauté</string>
     <string name="smooth">Lisse</string>

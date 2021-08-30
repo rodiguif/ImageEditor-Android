@@ -38,8 +38,8 @@
     <string name="more">Mehr</string>
     <string name="exit_without_save">Das bearbeitete Bild wird nicht gespeichert.
         Möchtest du aussteigen?</string>
-    <string name="confirm">Abbrechen</string>
-    <string name="cancel">Bestätigen Sie</string>
+    <string name="confirm">Bestätigen Sie</string>
+    <string name="cancel">Abbrechen</string>
 
     <string name="beauty">Ceauty</string>
     <string name="smooth">Glatt</string>
