@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Editar imagen</string>
+    <string name="no_images">No encontré la imagen</string>
+    <string name="images">%d Imagenes</string>
+    <string name="save">Salvar</string>
+    <string name="apply">Aplicar</string>
+
+    <string name="stickers">Pegatinas</string>
+    <string name="filter">Filtrar</string>
+    <string name="crop">Cortar</string>
+    <string name="rotate">Girar</string>
+    <string name="text">Texto</string>
+    <string name="edit">Dibujar</string>
+
+    <string name="saving_image">Salvar...</string>
+    <string name="input_hint">Texto de entrada ...</string>
+
+    <string name="no_choose">Elija una imagen para editar</string>
+    <string name="save_error">Guardar error!</string>
+    <string name="handing">Cargando...</string>
+
+    <string-array name="filters">
+        <item>Origin</item>
+        <item>Suave</item>
+        <item>Negro</item>
+        <item>Clásico</item>
+        <item>Precioso</item>
+        <item>Retro</item>
+        <item>Gracia</item>
+        <item>Película</item>
+        <item>Memoria</item>
+        <item>Yogur</item>
+        <item>Fugaz</item>
+        <item>Brillar</item>
+        <item>Mosaico</item>
+    </string-array>
+
+    <string name="more">Más</string>
+    <string name="exit_without_save">La imagen editada no se guarda. ¿Quieres salir?</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="smooth">Liso</string>
+</resources>

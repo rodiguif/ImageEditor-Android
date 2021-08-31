@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Rediger bilde</string>
+    <string name="no_images">Fant ikke bildet</string>
+    <string name="images">%d Bilder</string>
+    <string name="save">Lagre</string>
+    <string name="apply">Søke om</string>
+
+    <string name="stickers">Klistremerker</string>
+    <string name="filter">Filter</string>
+    <string name="crop">Avling</string>
+    <string name="rotate">Rotere</string>
+    <string name="text">Tekst</string>
+    <string name="edit">Tegne</string>
+
+    <string name="saving_image">Lagre...</string>
+    <string name="input_hint">Skriv inn tekst ...</string>
+
+    <string name="no_choose">Velg et bilde for redigering</string>
+    <string name="save_error">Lagre feil!</string>
+    <string name="handing">Laster inn...</string>
+
+    <string-array name="filters">
+        <item>Opprinnelse</item>
+        <item>Myk</item>
+        <item>Svart</item>
+        <item>Klassisk</item>
+        <item>Nydelig</item>
+        <item>Retro</item>
+        <item>Nåde</item>
+        <item>Film</item>
+        <item>Hukommelse</item>
+        <item>Iogurte</item>
+        <item>Yoghurt</item>
+        <item>Flyktig</item>
+        <item>Flyktig</item>
+    </string-array>
+
+    <string name="more">Mer</string>
+    <string name="exit_without_save">Det redigerte bildet lagres ikke. Vil du avslutte?</string>
+    <string name="confirm">Bekrefte</string>
+    <string name="cancel">Avbryt</string>
+
+    <string name="smooth">Glatt</string>
+</resources>

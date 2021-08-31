@@ -82,7 +82,7 @@ public class StickerFragment extends BaseEditFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        this.mStickerView = activity.mStickerView;
+        //this.mStickerView = activity.mStickerView;
         flipper = (ViewFlipper) mainView.findViewById(R.id.flipper);
         flipper.setInAnimation(activity, R.anim.in_bottom_to_top);
         flipper.setOutAnimation(activity, R.anim.out_bottom_to_top);
@@ -119,8 +119,8 @@ public class StickerFragment extends BaseEditFragment {
     @Override
     public void onShow() {
         activity.mode = EditImageActivity.MODE_STICKERS;
-        activity.mStickerFragment.getmStickerView().setVisibility(
-                View.VISIBLE);
+        /*activity.mStickerFragment.getmStickerView().setVisibility(
+                View.VISIBLE);*/
         activity.bannerFlipper.showNext();
     }
 

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Bild bearbeiten</string>
+    <string name="no_images">Kein Bild gefunden</string>
+    <string name="images">%d Bilder</string>
+    <string name="save">Speichern</string>
+    <string name="apply">Bewerben</string>
+
+    <string name="stickers">Aufkleber</string>
+    <string name="filter">Ernte</string>
+    <string name="crop">Zuschneiden</string>
+    <string name="rotate">Rotieren</string>
+    <string name="text">Text</string>
+    <string name="edit">Zeichnen</string>
+
+    <string name="saving_image">Sparen...</string>
+    <string name="input_hint">Eingabetext ...</string>
+
+    <string name="no_choose">Bitte wählen Sie ein Bild zum Bearbeiten aus</string>
+    <string name="save_error">Fehler speichern!</string>
+    <string name="handing">Wird geladen...</string>
+
+    <string-array name="filters">
+        <item>Herkunft</item>
+        <item>Weich</item>
+        <item>Schwarz</item>
+        <item>Klassisch</item>
+        <item>Prächtig</item>
+        <item>Retro</item>
+        <item>Gnade</item>
+        <item>Film</item>
+        <item>Speicher</item>
+        <item>Joghurt</item>
+        <item>Flüchtig</item>
+        <item>Scheinen</item>
+        <item>Mosaik</item>
+    </string-array>
+
+    <string name="more">Mehr</string>
+    <string name="exit_without_save">Das bearbeitete Bild wird nicht gespeichert.
+        Möchtest du aussteigen?</string>
+    <string name="confirm">Bestätigen Sie</string>
+    <string name="cancel">Abbrechen</string>
+
+    <string name="smooth">Glatt</string>
+</resources>

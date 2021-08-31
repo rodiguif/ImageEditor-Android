@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Éditer l\'image</string>
+    <string name="no_images">Non trouvé l\'image</string>
+    <string name="images">%d Images</string>
+    <string name="save">Enregistrer</string>
+    <string name="apply">Appliquer</string>
+
+    <string name="stickers">Autocollants</string>
+    <string name="filter">Filtre</string>
+    <string name="crop">Recadrer</string>
+    <string name="rotate">Faire pivoter</string>
+    <string name="text">Texte</string>
+    <string name="edit">Dessiner</string>
+
+    <string name="saving_image">Enregistrer...</string>
+    <string name="input_hint">Entrada de texto ...</string>
+
+    <string name="no_choose">Veuillez choisir une image à modifier</string>
+    <string name="save_error">Enregistrer l\'erreur!</string>
+    <string name="handing">Chargement...</string>
+
+    <string-array name="filters">
+        <item>Origine</item>
+        <item>Mou, tendre</item>
+        <item>Le noir</item>
+        <item>Classique</item>
+        <item>Magnifique</item>
+        <item>Rétro</item>
+        <item>La grâce</item>
+        <item>Film</item>
+        <item>Mémoire</item>
+        <item>Yaourt</item>
+        <item>Fugace</item>
+        <item>Éclat</item>
+        <item>Mosaïque</item>
+    </string-array>
+
+    <string name="more">Suite</string>
+    <string name="exit_without_save">L\'image modifiée est pas enregistrée. Voulez-vous sortir?</string>
+
+    <string name="confirm">Confirmer</string>
+    <string name="cancel">Annuler</string>
+
+    <string name="smooth">Lisse</string>
+</resources>

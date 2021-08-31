@@ -85,16 +85,16 @@ public class EditImageActivity extends BaseActivity {
     private View applyBtn;// 应用按钮
     private View saveBtn;// 保存按钮
 
-    public StickerView mStickerView;// 贴图层View
+    //public StickerView mStickerView;// 贴图层View
     public CropImageView mCropPanel;// 剪切操作控件
     public RotateImageView mRotatePanel;// 旋转操作控件
-    public TextStickerView mTextStickerView;//文本贴图显示View
+    //public TextStickerView mTextStickerView;//文本贴图显示View
     public CustomPaintView mPaintView;//涂鸦模式画板
 
     public CustomViewPager bottomGallery;// 底部gallery
     private BottomGalleryAdapter mBottomGalleryAdapter;// 底部gallery
     private MainMenuFragment mMainMenuFragment;// Menu
-    public StickerFragment mStickerFragment;// 贴图Fragment
+    //public StickerFragment mStickerFragment;// 贴图Fragment
     public FilterListFragment mFilterListFragment;// 滤镜FliterListFragment
     public CropFragment mCropFragment;// 图片剪裁Fragment
     public RotateFragment mRotateFragment;// 图片旋转Fragment
@@ -161,10 +161,10 @@ public class EditImageActivity extends BaseActivity {
             }
         });
 
-        mStickerView = (StickerView) findViewById(R.id.sticker_panel);
+        //mStickerView = (StickerView) findViewById(R.id.sticker_panel);
         mCropPanel = (CropImageView) findViewById(R.id.crop_panel);
         mRotatePanel = (RotateImageView) findViewById(R.id.rotate_panel);
-        mTextStickerView = (TextStickerView) findViewById(R.id.text_sticker_panel);
+        //mTextStickerView = (TextStickerView) findViewById(R.id.text_sticker_panel);
         mPaintView = (CustomPaintView) findViewById(R.id.custom_paint_view);
 
         // 底部gallery
@@ -173,7 +173,7 @@ public class EditImageActivity extends BaseActivity {
         mMainMenuFragment = MainMenuFragment.newInstance();
         mBottomGalleryAdapter = new BottomGalleryAdapter(
                 this.getSupportFragmentManager());
-        mStickerFragment = StickerFragment.newInstance();
+        //mStickerFragment = StickerFragment.newInstance();
         mFilterListFragment = FilterListFragment.newInstance();
         mCropFragment = CropFragment.newInstance();
         mRotateFragment = RotateFragment.newInstance();
@@ -220,8 +220,8 @@ public class EditImageActivity extends BaseActivity {
             switch (index) {
                 case MainMenuFragment.INDEX:// 主菜单
                     return mMainMenuFragment;
-                case StickerFragment.INDEX:// 贴图
-                    return mStickerFragment;
+               /* case StickerFragment.INDEX:// 贴图
+                    return mStickerFragment;*/
                 case FilterListFragment.INDEX:// 滤镜
                     return mFilterListFragment;
                 case CropFragment.INDEX://剪裁
@@ -232,8 +232,8 @@ public class EditImageActivity extends BaseActivity {
                     return mAddTextFragment;
                 case PaintFragment.INDEX:
                     return mPaintFragment;//绘制
-                case BeautyFragment.INDEX://美颜
-                    return mBeautyFragment;
+                /*case BeautyFragment.INDEX://美颜
+                    return mBeautyFragment;*/
             }//end switch
             return MainMenuFragment.newInstance();
         }
@@ -276,9 +276,9 @@ public class EditImageActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         switch (mode) {
-            case MODE_STICKERS:
+           /* case MODE_STICKERS:
                 mStickerFragment.backToMain();
-                return;
+                return;*/
             case MODE_FILTER:// 滤镜编辑状态
                 mFilterListFragment.backToMain();// 保存滤镜贴图
                 return;
@@ -294,9 +294,9 @@ public class EditImageActivity extends BaseActivity {
             case MODE_PAINT:
                 mPaintFragment.backToMain();
                 return;
-            case MODE_BEAUTY://从美颜模式中返回
+           /* case MODE_BEAUTY://从美颜模式中返回
                 mBeautyFragment.backToMain();
-                return;
+                return;*/
         }// end switch
 
         if (canAutoExit()) {
@@ -328,9 +328,9 @@ public class EditImageActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             switch (mode) {
-                case MODE_STICKERS:
+               /* case MODE_STICKERS:
                     mStickerFragment.applyStickers();// 保存贴图
-                    break;
+                    break;*/
                 case MODE_FILTER:// 滤镜编辑状态
                     mFilterListFragment.applyFilterImage();// 保存滤镜贴图
                     break;
@@ -346,9 +346,9 @@ public class EditImageActivity extends BaseActivity {
                 case MODE_PAINT://保存涂鸦
                     mPaintFragment.savePaintImage();
                     break;
-                case MODE_BEAUTY://保存美颜后的图片
+                /*case MODE_BEAUTY://保存美颜后的图片
                     mBeautyFragment.applyBeauty();
-                    break;
+                    break;*/
                 default:
                     break;
             }// end switch
