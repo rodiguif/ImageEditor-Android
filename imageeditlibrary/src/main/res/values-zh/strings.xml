@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">编辑图片</string>
     <string name="no_images">没有发现图片</string>
     <string name="images">%d 张图片</string>
@@ -43,7 +43,7 @@
     <string name="confirm">确认</string>
     <string name="cancel">取消</string>
 
-    <string name="beauty">美颜</string>
+    <string name="beauty" tools:ignore="ExtraTranslation">美颜</string>
     <string name="smooth">磨皮</string>
-    <string name="white_skin">美白</string>
+    <string name="white_skin" tools:ignore="ExtraTranslation">美白</string>
 </resources>

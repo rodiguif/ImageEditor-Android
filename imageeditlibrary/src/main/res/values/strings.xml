@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Edit image</string>
     <string name="no_images">No found the image</string>
     <string name="images">%d Images</string>
@@ -48,7 +48,7 @@
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
 
-    <string name="beauty">Ceauty</string>
+    <string name="beauty" tools:ignore="MissingTranslation">Ceauty</string>
     <string name="smooth">Smooth</string>
-    <string name="white_skin">White skin</string>
+    <string name="white_skin" tools:ignore="MissingTranslation">White skin</string>
 </resources>

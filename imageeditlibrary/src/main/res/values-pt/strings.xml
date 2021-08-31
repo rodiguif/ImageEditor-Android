@@ -36,11 +36,9 @@
     </string-array>
 
     <string name="more">Mais</string>
-    <string name="exit_without_save">A imagem editada não é salva. Você quer? </string>
-    <string name="confirm"> Confirme</string>
+    <string name="exit_without_save">Tem Certeza? A edição não será salva.</string>
+    <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
 
-    <string name="beauty">Beleza</string>
     <string name="smooth">Suave</string>
-    <string name="white_skin">Pele branca</string>
 </resources>
