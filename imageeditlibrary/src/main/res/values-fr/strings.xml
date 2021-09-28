@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Éditer l\'image</string>
     <string name="no_images">Non trouvé l\'image</string>
     <string name="images">%d Images</string>
     <string name="save">Enregistrer</string>

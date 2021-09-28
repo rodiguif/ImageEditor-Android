@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Bild bearbeiten</string>
     <string name="no_images">Kein Bild gefunden</string>
     <string name="images">%d Bilder</string>
     <string name="save">Speichern</string>
