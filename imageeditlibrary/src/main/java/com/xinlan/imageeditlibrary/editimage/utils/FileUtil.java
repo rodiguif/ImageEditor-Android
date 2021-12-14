@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
 
 import java.io.File;
 
@@ -17,17 +18,6 @@ public class FileUtil {
 
         File file = new File(path);
         return file.exists();
-    }
-
-    // 获取文件扩展名
-    public static String getExtensionName(String filename) {
-        if ((filename != null) && (filename.length() > 0)) {
-            int dot = filename.lastIndexOf('.');
-            if ((dot > -1) && (dot < (filename.length() - 1))) {
-                return filename.substring(dot + 1);
-            }
-        }
-        return "";
     }
 
     /**
@@ -47,7 +37,7 @@ public class FileUtil {
         }
 
         ContentValues values = new ContentValues(2);
-        String extensionName = getExtensionName(dstPath);
+        String extensionName = MimeTypeMap.getFileExtensionFromUrl(dstPath);
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/" + (TextUtils.isEmpty(extensionName) ? "jpeg" : extensionName));
         values.put(MediaStore.Images.Media.DATA, dstPath);
         context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
