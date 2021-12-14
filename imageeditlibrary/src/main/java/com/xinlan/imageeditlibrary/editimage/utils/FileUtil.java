@@ -1,11 +1,10 @@
 package com.xinlan.imageeditlibrary.editimage.utils;
 
+import static android.webkit.MimeTypeMap.getFileExtensionFromUrl;
 import android.content.ContentValues;
 import android.content.Context;
 import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-
 import java.io.File;
 
 /**
@@ -37,8 +36,9 @@ public class FileUtil {
         }
 
         ContentValues values = new ContentValues(2);
-        String extensionName = MimeTypeMap.getFileExtensionFromUrl(dstPath);
-        values.put(MediaStore.Images.Media.MIME_TYPE, "image/" + (TextUtils.isEmpty(extensionName) ? "jpeg" : extensionName));
+        String extensionName = getFileExtensionFromUrl(dstPath);
+        values.put(MediaStore.Images.Media.MIME_TYPE, "image/" + (TextUtils.isEmpty(extensionName)
+                || extensionName.equals("jpg") ? "jpeg" : extensionName));
         values.put(MediaStore.Images.Media.DATA, dstPath);
         context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
     }
