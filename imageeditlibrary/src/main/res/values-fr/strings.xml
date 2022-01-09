@@ -9,7 +9,7 @@
     <string name="crop">Recadrer</string>
     <string name="rotate">Faire pivoter</string>
     <string name="text">Texte</string>
-    <string name="edit">Dessiner</string>
+    <string name="draw">Dessiner</string>
 
     <string name="saving_image">Enregistrer...</string>
     <string name="input_hint">Entrada de texto ...</string>

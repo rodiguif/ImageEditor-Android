@@ -9,7 +9,7 @@
     <string name="crop">Avling</string>
     <string name="rotate">Rotere</string>
     <string name="text">Tekst</string>
-    <string name="edit">Tegne</string>
+    <string name="draw">Tegne</string>
 
     <string name="saving_image">Lagre...</string>
     <string name="input_hint">Skriv inn tekst ...</string>
