@@ -1,22 +1,28 @@
-package com.xinlan.imageeditlibrary.editimage.utils;
+package com.xinlan.imageeditlibrary.editimage.utils
 
-import static android.webkit.MimeTypeMap.getFileExtensionFromUrl;
-import android.content.ContentValues;
-import android.content.Context;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import java.io.File;
+import android.text.TextUtils
+import android.content.ContentValues
+import android.content.Context
+import android.graphics.Bitmap
+import android.os.Build
+import android.os.Environment
+import android.webkit.MimeTypeMap
+import android.provider.MediaStore
+import com.xinlan.imageeditlibrary.R
+import java.io.File
+import android.graphics.BitmapFactory
+
+
+
 
 /**
  * Created by panyi on 16/10/23.
  */
-public class FileUtil {
-    public static boolean checkFileExist(final String path) {
-        if (TextUtils.isEmpty(path))
-            return false;
-
-        File file = new File(path);
-        return file.exists();
+object FileUtil {
+    fun checkFileExist(path: String?): Boolean {
+        if (TextUtils.isEmpty(path)) return false
+        val file = File(path)
+        return file.exists()
     }
 
     /**
@@ -25,21 +31,77 @@ public class FileUtil {
      * @param context
      * @param dstPath
      */
-    public static void ablumUpdate(final Context context, final String dstPath) {
-        if (TextUtils.isEmpty(dstPath) || context == null)
-            return;
-
-        File file = new File(dstPath);
+    @JvmStatic
+    fun ablumUpdate(context: Context?, dstPath: String?) {
+        if (TextUtils.isEmpty(dstPath) || context == null) return
+        val file = File(dstPath)
         //System.out.println("panyi  file.length() = "+file.length());
-        if (!file.exists() || file.length() == 0) {//文件若不存在  则不操作
-            return;
+        if (!file.exists() || file.length() == 0L) { //文件若不存在  则不操作
+            return
+        }
+        val values = ContentValues(2)
+        val extensionName = MimeTypeMap.getFileExtensionFromUrl(dstPath)
+        values.put(
+            MediaStore.Images.Media.MIME_TYPE, "image/" + if (TextUtils.isEmpty(extensionName)
+                || extensionName == "jpg"
+            ) "jpeg" else extensionName
+        )
+        values.put(MediaStore.Images.Media.DATA, dstPath)
+        context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+    }
+
+    fun albumUpdate(context: Context, dstPath: String) {
+        if (TextUtils.isEmpty(dstPath)) return
+        val imageFile = File(dstPath)
+        val bmOptions = BitmapFactory.Options()
+        val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath, bmOptions)
+
+        val collection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+        } else {
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         }
 
-        ContentValues values = new ContentValues(2);
-        String extensionName = getFileExtensionFromUrl(dstPath);
-        values.put(MediaStore.Images.Media.MIME_TYPE, "image/" + (TextUtils.isEmpty(extensionName)
-                || extensionName.equals("jpg") ? "jpeg" : extensionName));
-        values.put(MediaStore.Images.Media.DATA, dstPath);
-        context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        //val dirDest = File(Environment.DIRECTORY_PICTURES, "context.getString(R.string.app_name)")
+        val date = System.currentTimeMillis()
+        //val extension = Utils.getImageExtension(format)
+        val extension = MimeTypeMap.getFileExtensionFromUrl(dstPath)
+        val mimeType = if (TextUtils.isEmpty(extension) || extension == "jpg") "jpeg" else extension
+
+        val newImage = ContentValues().apply {
+            put(MediaStore.Images.Media.DISPLAY_NAME, "$date.$extension")
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/$mimeType")
+            put(MediaStore.MediaColumns.DATE_ADDED, date)
+            put(MediaStore.MediaColumns.DATE_MODIFIED, date)
+            put(MediaStore.MediaColumns.SIZE, bitmap.byteCount)
+            put(MediaStore.MediaColumns.WIDTH, bitmap.width)
+            put(MediaStore.MediaColumns.HEIGHT, bitmap.height)
+            //put(MediaStore.MediaColumns.RELATIVE_PATH, "$dirDest${File.separator}")
+            //put(MediaStore.Images.Media.IS_PENDING, 1)
+        }
+
+        val newImageUri = context.contentResolver.insert(collection, newImage)
+
+//        context.contentResolver.openOutputStream(newImageUri!!, "w").use {
+//            bitmap.compress(format, 100, it)
+//        }
+
+        //newImage.clear()
+        //newImage.put(MediaStore.Images.Media.IS_PENDING, 0)
+        //context.contentResolver.update(newImageUri, newImage, null, null)
     }
-}//end class
+
+    fun getImageFormat(type: String): Bitmap.CompressFormat {
+        return when (type) {
+            Bitmap.CompressFormat.PNG.name -> {
+                Bitmap.CompressFormat.PNG
+            }
+            Bitmap.CompressFormat.JPEG.name -> {
+                Bitmap.CompressFormat.JPEG
+            }
+            else -> {
+                Bitmap.CompressFormat.JPEG
+            }
+        }
+    }
+} //end class
