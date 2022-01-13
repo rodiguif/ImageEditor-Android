@@ -437,7 +437,7 @@ public class EditImageActivity extends BaseActivity {
         returnIntent.putExtra(EXTRA_OUTPUT, saveFilePath);
         returnIntent.putExtra(IMAGE_IS_EDIT, mOpTimes > 0);
 
-        FileUtil.INSTANCE.albumUpdate(this, saveFilePath);
+        FileUtil.ablumUpdate(this, saveFilePath);
         setResult(RESULT_OK, returnIntent);
         finish();
     }
