@@ -11,8 +11,8 @@ import android.provider.MediaStore
 import com.xinlan.imageeditlibrary.R
 import java.io.File
 import android.graphics.BitmapFactory
-
-
+import android.net.Uri
+import androidx.core.content.FileProvider
 
 
 /**
@@ -62,35 +62,82 @@ object FileUtil {
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         }
 
-        //val dirDest = File(Environment.DIRECTORY_PICTURES, "context.getString(R.string.app_name)")
         val date = System.currentTimeMillis()
         //val extension = Utils.getImageExtension(format)
         val extension = MimeTypeMap.getFileExtensionFromUrl(dstPath)
         val mimeType = if (TextUtils.isEmpty(extension) || extension == "jpg") "jpeg" else extension
 
         val newImage = ContentValues().apply {
-            put(MediaStore.Images.Media.DISPLAY_NAME, "$date.$extension")
+            put(MediaStore.Images.Media.DISPLAY_NAME, imageFile.name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/$mimeType")
             put(MediaStore.MediaColumns.DATE_ADDED, date)
             put(MediaStore.MediaColumns.DATE_MODIFIED, date)
             put(MediaStore.MediaColumns.SIZE, bitmap.byteCount)
             put(MediaStore.MediaColumns.WIDTH, bitmap.width)
             put(MediaStore.MediaColumns.HEIGHT, bitmap.height)
-            //put(MediaStore.MediaColumns.RELATIVE_PATH, "$dirDest${File.separator}")
-            //put(MediaStore.Images.Media.IS_PENDING, 1)
         }
+
+        val uri = context.contentResolver.insert(collection, newImage)
+
+        context.contentResolver.openOutputStream(uri!!, "w").use {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+        }
+    }
+
+    fun saveImage(context: Context, bitmap: Bitmap, format: Bitmap.CompressFormat, dstPath: String) {
+        if (TextUtils.isEmpty(dstPath)) return
+        val imageFile = File(dstPath)
+
+        val collection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+        } else {
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        }
+
+        val date = System.currentTimeMillis()
+        val extension = getImageExtension(format)
+
+        val newImage = ContentValues().apply {
+            put(MediaStore.Images.Media.DISPLAY_NAME, imageFile.name)
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/$extension")
+            put(MediaStore.MediaColumns.DATE_ADDED, date)
+            put(MediaStore.MediaColumns.DATE_MODIFIED, date)
+            put(MediaStore.MediaColumns.SIZE, bitmap.byteCount)
+            put(MediaStore.MediaColumns.WIDTH, bitmap.width)
+            put(MediaStore.MediaColumns.HEIGHT, bitmap.height)
+        }
+
+        val uri = FileProvider.getUriForFile(
+            context,
+            context.applicationContext.packageName + ".fileProvider",
+            imageFile)
+
+        context.contentResolver.delete(uri, null, null)
+        imageFile.delete()
 
         val newImageUri = context.contentResolver.insert(collection, newImage)
 
-//        context.contentResolver.openOutputStream(newImageUri!!, "w").use {
-//            bitmap.compress(format, 100, it)
-//        }
+        context.contentResolver.openOutputStream(newImageUri!!, "rw").use {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, it)
+        }
 
-        //newImage.clear()
-        //newImage.put(MediaStore.Images.Media.IS_PENDING, 0)
+
         //context.contentResolver.update(newImageUri, newImage, null, null)
     }
 
+    fun getImageExtension(format: Bitmap.CompressFormat): String {
+        return when (format) {
+            Bitmap.CompressFormat.PNG -> {
+                "png"
+            }
+            Bitmap.CompressFormat.JPEG -> {
+                "jpeg"
+            }
+            else -> {
+                "jpeg"
+            }
+        }
+    }
     fun getImageFormat(type: String): Bitmap.CompressFormat {
         return when (type) {
             Bitmap.CompressFormat.PNG.name -> {

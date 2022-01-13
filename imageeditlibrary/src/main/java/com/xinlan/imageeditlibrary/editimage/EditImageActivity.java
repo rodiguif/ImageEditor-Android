@@ -16,6 +16,7 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -40,6 +41,8 @@ import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouch;
 import com.xinlan.imageeditlibrary.editimage.utils.BitmapUtils;
 import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouchBase;
 import com.xinlan.imageeditlibrary.editimage.widget.RedoUndoController;
+
+import java.io.IOException;
 
 /**
  * <p>
@@ -437,7 +440,8 @@ public class EditImageActivity extends BaseActivity {
         returnIntent.putExtra(EXTRA_OUTPUT, saveFilePath);
         returnIntent.putExtra(IMAGE_IS_EDIT, mOpTimes > 0);
 
-        FileUtil.INSTANCE.albumUpdate(this, saveFilePath);
+        //FileUtil.ablumUpdate(this, saveFilePath);
+        //FileUtil.INSTANCE.albumUpdate(this, saveFilePath);
         setResult(RESULT_OK, returnIntent);
         finish();
     }
@@ -453,8 +457,11 @@ public class EditImageActivity extends BaseActivity {
         protected Boolean doInBackground(Bitmap... params) {
             if (TextUtils.isEmpty(saveFilePath))
                 return false;
-
-            return BitmapUtils.saveBitmap(params[0], saveFilePath);
+            String extension = MimeTypeMap.getFileExtensionFromUrl(saveFilePath);
+            Bitmap.CompressFormat format = FileUtil.INSTANCE.getImageFormat(extension);
+            FileUtil.INSTANCE.saveImage(getApplicationContext(), params[0], format, saveFilePath);
+            return true;
+            //return BitmapUtils.saveBitmap(params[0], saveFilePath);
         }
 
         @Override

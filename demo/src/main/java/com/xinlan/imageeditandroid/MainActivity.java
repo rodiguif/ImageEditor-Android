@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void editImageClick() {
         File outputFile = FileUtils.genEditFile();
-        EditImageActivity.start(this,path,outputFile.getAbsolutePath(),ACTION_REQUEST_EDITIMAGE);
+        EditImageActivity.start(this,path,path/*outputFile.getAbsolutePath()*/,ACTION_REQUEST_EDITIMAGE);
     }
 
     /**
