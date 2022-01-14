@@ -27,12 +27,7 @@ public class FileUtils {
 	 */
 	public static File createFolders() {
 		File baseDir;
-		if (android.os.Build.VERSION.SDK_INT < 8) {
-			baseDir = Environment.getExternalStorageDirectory();
-		} else {
-			baseDir = Environment
-					.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-		}
+		baseDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 		if (baseDir == null)
 			return Environment.getExternalStorageDirectory();
 		File aviaryFolder = new File(baseDir, FOLDER_NAME);
